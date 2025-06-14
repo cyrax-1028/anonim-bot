@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+*.exe
+*.egg
+*.whl
+
+# Logs and debug
+*.log
+*.pot
+*.mo
+
+# Database
+*.sqlite3
+
+# Migrations
+*/migrations/__pycache__/
+*/migrations/*.py[cod]
+
+# System files
+.DS_Store
+Thumbs.db
