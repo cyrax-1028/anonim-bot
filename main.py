@@ -24,6 +24,7 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID")
 ADMIN_URL = os.getenv("ADMIN_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 logging.basicConfig(level=logging.INFO)
 
@@ -43,13 +44,7 @@ def generate_token(length=8):
 
 # 🔌 PostgreSQL connection pool yaratish
 async def init_db():
-    pool = await asyncpg.create_pool(
-        database=os.getenv("DB_NAME"),
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        host=os.getenv("DB_HOST", "localhost"),
-        port=os.getenv("DB_PORT", "5432")
-    )
+    pool = await asyncpg.create_pool(DATABASE_URL)
     async with pool.acquire() as conn:
         await conn.execute("""
             CREATE TABLE IF NOT EXISTS users (
