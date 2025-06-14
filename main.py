@@ -59,8 +59,7 @@ async def init_db():
         """)
 
         await conn.execute("""
-                    CREATE TABLE muted_users
-(
+            CREATE TABLE IF NOT EXISTS muted_users(
     user_id     BIGINT PRIMARY KEY REFERENCES users (user_id) ON DELETE CASCADE,
     muted_until TIMESTAMP NOT NULL,
     reason      TEXT,
